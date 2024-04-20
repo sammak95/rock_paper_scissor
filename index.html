@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock_paper_scissor</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            let randomVal = Math.random();
+            if (randomVal>0 && randomVal<=0.33){
+                return "rock";
+            }
+            else if (randomVal>0.33 && randomVal<=0.66){
+                return "paper";
+            }
+            else if (randomVal>0.66 && randomVal<=0.99){
+                return "scissor";
+            }
+        }
+    
+
+        function getUserchoice() {
+            let userChoice = prompt("Enter your choice: rock, paper or scissor");
+            let userChoiceInLowerCase = userChoice.toLowerCase();
+            return userChoiceInLowerCase;
+        }
+
+        
+
+        function playRound(compSelection, userSelection){
+            if (compSelection == userSelection){
+                alert("It's a tie!");
+            }
+
+            else {
+                if (compSelection=="rock" && userSelection=="paper"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Won! paper beats rock");
+                }
+
+
+                else if (compSelection=="rock" && userSelection=="scissor"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Lose! rock beats scissor");
+                }
+
+
+                else if (compSelection=="paper" && userSelection=="rock"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Lose! paper beats rock");
+                }
+
+
+                else if (compSelection=="paper" && userSelection=="scissor"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Won! scissor beats paper");
+                }
+
+
+                else if (compSelection=="scissor" && userSelection=="rock"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Won! rock beats scissor");
+                }
+
+
+                else if (compSelection=="scissor" && userSelection=="paper"){
+                    alert("Computer Chose: " + compSelection);
+                    alert("You Lose! scissor beats paper");
+                }
+
+            }
+        }
+
+        function playGame(){
+            for (let i=0; i<5; i++){ 
+                let computerSelection = getComputerChoice();
+                let playerSelection = getUserchoice();
+                playRound (computerSelection, playerSelection);
+            }
+        }
+
+        playGame();
+        
+        
+    </script>
+</body>
+</html>
